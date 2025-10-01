@@ -1,10 +1,7 @@
-"""Implementation for the Sequence Guessing Game"""
+"Implementation for the Sequence Guessing Game"
 
-# ✅ CRITICAL FIX: Use 'include' without the file extension. 
-# This pulls in the walker definition.
 include guess_next_number;
 
-# Initializing the game
 impl SequenceGuessGame.start {
     if not [root --> (`?turn)] {
         initial_number = random.randint(1, 10);
@@ -23,7 +20,6 @@ impl SequenceGuessGame.start {
     visit next;
 }
 
-# Processing the user's guess
 impl SequenceGuessGame.process_guess {
     if self.guess == here.correct_next_number {
         print("🎉 Congratulations! You guessed the next number correctly.");
@@ -45,7 +41,6 @@ impl SequenceGuessGame.process_guess {
     }
 }
 
-# ✅ CRITICAL: The entry point must be here
 with entry:__main__ {
     root spawn SequenceGuessGame(3);
     root spawn SequenceGuessGame(4);
